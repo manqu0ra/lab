@@ -3,9 +3,9 @@
 int main(void)
 {
     int b;
-    char dlr[1], tc[9], fin[2], ch;
+    char tc[9], ch;
     float temp,a,k;
-    scanf ("%s %s %f", dlr, tc, &temp);
+    scanf ("%s %f", tc, &temp);
     ch=getchar();
     if (ch == ' ')
     {
