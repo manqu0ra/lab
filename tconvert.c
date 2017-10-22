@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            printf("%.2f C \n%.2f F ", ((temp-273.15)*1.8+32), (temp-273.15));
+            printf("%.2f C \n%.2f F ", (temp-273.15), ((temp-273.15)*1.8+32));
         }
 
     }
