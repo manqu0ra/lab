@@ -7,7 +7,7 @@ A = [[0] * m for i in range(n)]
 B = [[0] * (m-1) for i in range(n-1)]
 for j in range(n):
     for h in range(m):
-        A[j][h]=random.randint(1,1000)
+        A[j][h]=random.randint(1,50)
         
 print('task 1:')
 for row in A: 
@@ -51,7 +51,7 @@ for j in range(n-1):
         else:
             B[j][h]=A[j][h]
 
-print('task 3:')
+print('first matrix:')
 for row in B: 
     for elem in row: 
         print(elem, end=' ') 
@@ -61,12 +61,15 @@ print()
 s = input()
 sz = ','
 c_col = s.count(sz)+1#counting collumns of list
+s = s.replace(',', ' ,')
+s = s.replace('.', ' .')
 s1 = s.split(' ')
 c_line = s1.index(',')#counting lines of list
 
 C = [[0] * c_line for i in range(c_col)]
-i=0
+
 cc=0
+i=0
 
 for j in range(c_col):
     for h in range(c_line):
@@ -82,21 +85,17 @@ for row in C:
     print()
 print()
 
-if (c_col == m-1):
-    D=[[0] * (c_col) for i in range(n-1)]
-    for j in range(c_col):
-        for h in range(n-1):
+if (c_col == m-1):#multiplication
+    D=[[0] * (c_line) for i in range(n-1)]
+    for j in range(n-1):
+        for h in range(c_line):
             for g in range(c_col):
-                
-                if g==0:
-                    D[j][h]=0
-                    
-                D[j][h]=D[j][h]+int(B[g][h])*int(C[j][g])
+                D[j][h]=D[j][h]+int(B[j][g])*int(C[g][h])
                 
     print('task 4:')
     for row in D: 
         for elem in row: 
             print(elem, end=' ') 
-    print()
+        print()
 else:
     print('with the entered variables multiplication is impossible')
