@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAXSIZE 100
 
 int main()
 {
 
-
-    double stack[MAXSIZE];
+    double stack[100];
     int top = 0;
-    printf ("Enter the expression according to the rules of Reverse Polish notation\nThe end of input - symbol ''=''");
+    printf ("Enter the expression according to the rules of Reverse Polish notation\nThe end of input - symbol ''=''\n");
     while ( !feof(stdin) )
     {
         int s = getchar();
@@ -17,28 +15,29 @@ int main()
         switch (s)
         {
             case  ' ':
+
             case '\n':
                 break;
 
             case '+':
-               stack[top-2]=stack[top-2]+stack[top-1];
-               top--;
-               break;
+                stack[top-2]=stack[top-2]+stack[top-1];
+                top--;
+                break;
 
             case '-':
-               stack[top-2]=stack[top-2]-stack[top-1];
-               top--;
-               break;
+                stack[top-2]=stack[top-2]-stack[top-1];
+                top--;
+                break;
 
             case '*':
-               stack[top-2]=stack[top-1]*stack[top - 2];
-               top--;
-               break;
+                stack[top-2]=stack[top-1]*stack[top - 2];
+                top--;
+                break;
 
             case '/':
-               stack[top-2]=stack[top-2]/stack[top - 1];
-               top--;
-               break;
+                stack[top-2]=stack[top-2]/stack[top - 1];
+                top--;
+                break;
 
             case '=':
                 printf("Result = %.2f\n", stack[top - 1]);
@@ -49,7 +48,7 @@ int main()
                 ungetc (s, stdin);
                 if (scanf("%d", &a) != 1)
                 {
-                    printf(stderr, "Input error \n");
+                    printf("Input error \n");
                     return -1;
                 }
                 else
@@ -59,7 +58,6 @@ int main()
                 }
         }
     }
-
     printf("Result = %.2f\n", stack[top-1]);
     return 0;
 
